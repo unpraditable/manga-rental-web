@@ -29,7 +29,7 @@ export default function LoginPage() {
     mutationFn: login,
     onSuccess: (data) => {
       setAuth(data.user, data.accessToken);
-      router.push("/beranda");
+      router.push("/home");
     },
   });
 

@@ -78,10 +78,10 @@ export default function PriceListDialogue({
             >
               <div>
                 <p className="text-sm font-medium text-gray-900">
-                  {p.durationDays} hari
+                  {p.durationDays} days
                 </p>
                 <p className="text-xs text-gray-500 mt-0.5">
-                  Denda Rp {p.finePerDay.toLocaleString("id")}/hari
+                  Fine Rp {p.finePerDay.toLocaleString("id")}/days
                 </p>
               </div>
               <p
@@ -97,13 +97,13 @@ export default function PriceListDialogue({
         {selected && (
           <div className="bg-gray-50 rounded-xl p-4 mb-5 border border-gray-100 space-y-2">
             <div className="flex justify-between text-xs">
-              <span className="text-gray-500">Durasi</span>
+              <span className="text-gray-500">Duration</span>
               <span className="text-gray-700">
-                {selected.durationDays} hari
+                {selected.durationDays} days
               </span>
             </div>
             <div className="flex justify-between text-xs">
-              <span className="text-gray-500">Jatuh tempo</span>
+              <span className="text-gray-500">Due</span>
               <span className="text-gray-700">
                 {format(
                   addDays(new Date(), selected.durationDays),

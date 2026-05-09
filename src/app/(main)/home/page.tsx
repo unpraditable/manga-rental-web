@@ -37,16 +37,14 @@ export default function HomePage() {
       {/* Greeting */}
       <div>
         <h1 className="text-2xl font-semibold text-gray-900">
-          Halo, {user?.name?.split(" ")[0]} 👋
+          Hello, {user?.name?.split(" ")[0]} 👋
         </h1>
-        <p className="text-sm text-gray-500 mt-1">
-          Selamat datang di Manga Rental
-        </p>
+        <p className="text-sm text-gray-500 mt-1">Welcome to Manga Rental</p>
       </div>
 
       {/* Active rental banner */}
       {nearestRental && daysLeft !== null && (
-        <Link href="/pinjaman">
+        <Link href="/rent">
           <div
             className={`rounded-2xl p-5 border transition hover:shadow-sm ${
               isOverdue
@@ -65,7 +63,7 @@ export default function HomePage() {
                     : "text-primary-600"
               }`}
             >
-              {isOverdue ? "Denda berjalan!" : "Pinjaman aktif"}
+              {isOverdue ? "Fine overdue!" : "Rent active"}
             </p>
             <p className="text-sm font-semibold text-gray-900">
               {nearestRental.manga?.title} Vol.{" "}
@@ -82,8 +80,8 @@ export default function HomePage() {
                 }`}
               >
                 {isOverdue
-                  ? `Terlambat ${Math.abs(daysLeft)} hari`
-                  : `Sisa ${daysLeft} hari`}
+                  ? `Late ${Math.abs(daysLeft)} days`
+                  : `${daysLeft} remaining days`}
               </span>
             </div>
           </div>
@@ -97,7 +95,7 @@ export default function HomePage() {
             Popular Manga
           </h2>
           <Link
-            href="/katalog"
+            href="/catalogue"
             className="text-sm text-primary-600 hover:underline"
           >
             Show All →

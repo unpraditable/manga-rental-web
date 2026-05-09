@@ -14,14 +14,11 @@ export default function RentHistoryPage() {
   return (
     <div className="space-y-6 animate-fade-up">
       <div>
-        <Link
-          href="/pinjaman"
-          className="text-sm text-primary-600 hover:underline"
-        >
+        <Link href="/rent" className="text-sm text-primary-600 hover:underline">
           ← Kembali
         </Link>
         <h1 className="text-2xl font-semibold text-gray-900 mt-3">
-          Riwayat pinjaman
+          Rent history
         </h1>
       </div>
 
@@ -36,7 +33,7 @@ export default function RentHistoryPage() {
         </div>
       ) : rentals?.length === 0 ? (
         <p className="text-gray-400 text-sm text-center py-12">
-          Belum ada riwayat pinjaman
+          No active rents
         </p>
       ) : (
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
@@ -47,13 +44,13 @@ export default function RentHistoryPage() {
                   Manga
                 </th>
                 <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 hidden sm:table-cell">
-                  Dipinjam
+                  Rented
                 </th>
                 <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 hidden sm:table-cell">
-                  Dikembalikan
+                  Returned
                 </th>
                 <th className="text-right px-4 py-3 text-xs font-medium text-gray-500">
-                  Denda
+                  Fine
                 </th>
               </tr>
             </thead>
@@ -89,7 +86,7 @@ export default function RentHistoryPage() {
                         Rp {r.fineAmount.toLocaleString("id")}
                       </span>
                     ) : (
-                      <span className="text-green-600 text-xs">Tidak ada</span>
+                      <span className="text-green-600 text-xs">Nothing</span>
                     )}
                   </td>
                 </tr>

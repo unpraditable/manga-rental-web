@@ -26,13 +26,13 @@ export default function RentalCard({ rental }: { rental: Rental }) {
           Vol. {rental.volume?.volumeNumber}
         </p>
         <p className="text-xs text-gray-400 mt-1">
-          Dipinjam{" "}
+          Rented{" "}
           {format(parseISO(rental.rentDate), "d MMM yyyy", {
             locale: localeId,
           })}
         </p>
         <p className="text-xs text-gray-400">
-          Jatuh tempo{" "}
+          Due{" "}
           {format(parseISO(rental.dueDate), "d MMM yyyy", { locale: localeId })}
         </p>
       </div>

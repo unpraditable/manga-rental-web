@@ -21,22 +21,20 @@ export default function RentPage() {
     <div className="space-y-6 animate-fade-up">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">
-            Pinjaman saya
-          </h1>
+          <h1 className="text-2xl font-semibold text-gray-900">My rent</h1>
           <p className="text-sm text-gray-500 mt-1">
-            {activeRentals.length} pinjaman aktif
+            {activeRentals.length} active rents
           </p>
         </div>
         <Link
-          href="/pinjaman/riwayat"
+          href="/rent/history"
           className="text-sm text-primary-600 hover:underline"
         >
-          Lihat riwayat →
+          Browse history →
         </Link>
       </div>
 
-      {/* Denda alerts */}
+      {/* Fine alerts */}
       {overdueRentals.map((r) => (
         <FineAlert
           key={r.id}
@@ -56,12 +54,12 @@ export default function RentPage() {
         </div>
       ) : activeRentals.length === 0 ? (
         <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center">
-          <p className="text-gray-400 text-sm mb-3">Belum ada pinjaman aktif</p>
+          <p className="text-gray-400 text-sm mb-3">No active rents</p>
           <Link
-            href="/katalog"
+            href="/catalogue"
             className="text-primary-600 text-sm font-medium hover:underline"
           >
-            Jelajahi katalog →
+            Browse catalogue →
           </Link>
         </div>
       ) : (

@@ -40,7 +40,7 @@ export default function MangaDetailPage() {
         onClick={() => router.back()}
         className="text-sm text-primary-600 hover:underline"
       >
-        ← Kembali ke katalog
+        ← Back to Catalogue
       </button>
 
       {/* Hero section */}
@@ -138,7 +138,7 @@ export default function MangaDetailPage() {
           onClose={() => setShowDialog(false)}
           onSuccess={() => {
             setShowDialog(false);
-            router.push("/pinjaman");
+            router.push("/rent");
           }}
         />
       )}

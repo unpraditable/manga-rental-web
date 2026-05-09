@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
   if (token && PUBLIC_PATHS.some((p) => pathname.startsWith(p))) {
-    return NextResponse.redirect(new URL("/beranda", request.url));
+    return NextResponse.redirect(new URL("/home", request.url));
   }
   return NextResponse.next();
 }

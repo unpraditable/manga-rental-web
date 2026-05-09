@@ -19,7 +19,7 @@ export default function MangaCard({ manga, style }: Props) {
 
   return (
     <Link
-      href={`/katalog/${manga.id}`}
+      href={`/catalogue/${manga.id}`}
       style={style}
       className="animate-fade-up block"
     >

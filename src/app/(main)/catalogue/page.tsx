@@ -50,8 +50,8 @@ export default function CataloguePage() {
   return (
     <div className="space-y-6 animate-fade-up">
       <div>
-        <h1 className="text-2xl font-semibold text-gray-900">Katalog</h1>
-        <p className="text-sm text-gray-500 mt-1">Temukan manga favoritmu</p>
+        <h1 className="text-2xl font-semibold text-gray-900">Catalogue</h1>
+        <p className="text-sm text-gray-500 mt-1">Find your favorite manga</p>
       </div>
 
       {/* Search + filter */}
@@ -61,7 +61,7 @@ export default function CataloguePage() {
           <input
             value={search}
             onChange={(e) => handleSearch(e.target.value)}
-            placeholder="Cari judul atau pengarang..."
+            placeholder="Search by title or author..."
             className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
           />
         </div>
@@ -96,7 +96,7 @@ export default function CataloguePage() {
       ) : (
         <>
           <p className="text-sm text-gray-400">
-            {data?.total ?? 0} judul ditemukan
+            {data?.total ?? 0} title found
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {data?.data.map((manga, i) => (
@@ -109,7 +109,7 @@ export default function CataloguePage() {
           </div>
           {data?.data.length === 0 && (
             <div className="text-center py-16 text-gray-400 text-sm">
-              Tidak ada manga yang sesuai
+              No manga found
             </div>
           )}
         </>

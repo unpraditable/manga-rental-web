@@ -43,7 +43,7 @@ export default function RegisterPage() {
       }),
     onSuccess: (data) => {
       setAuth(data.user, data.accessToken);
-      router.push("/beranda");
+      router.push("/home");
     },
   });
 

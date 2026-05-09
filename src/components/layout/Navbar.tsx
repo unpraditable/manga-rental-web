@@ -4,10 +4,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/authStore";
 
 const NAV_LINKS = [
-  { href: "/beranda", label: "Beranda" },
-  { href: "/katalog", label: "Katalog" },
-  { href: "/pinjaman", label: "Pinjaman" },
-  { href: "/notifikasi", label: "Notifikasi" },
+  { href: "/home", label: "Home" },
+  { href: "/catalogue", label: "Catalogue" },
+  { href: "/rent", label: "Rent" },
+  { href: "/notification", label: "Notifications" },
 ];
 
 export default function Navbar() {
@@ -24,7 +24,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/beranda" className="flex items-center gap-2">
+        <Link href="/home" className="flex items-center gap-2">
           <div className="w-7 h-7 bg-primary-600 rounded-lg flex items-center justify-center">
             <div className="w-3.5 h-3.5 bg-primary-100 rounded" />
           </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
             onClick={handleLogout}
             className="text-xs text-gray-400 hover:text-gray-700 transition"
           >
-            Keluar
+            Logout
           </button>
         </div>
       </div>
