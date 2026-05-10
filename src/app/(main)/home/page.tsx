@@ -39,7 +39,7 @@ export default function HomePage() {
         <h1 className="text-2xl font-semibold text-gray-900">
           Hello, {user?.name?.split(" ")[0]} 👋
         </h1>
-        <p className="text-sm text-gray-500 mt-1">Welcome to Manga Rental</p>
+        <p className="text-md text-gray-500 mt-1">Welcome to Manga Rental</p>
       </div>
 
       {/* Active rental banner */}
@@ -51,32 +51,32 @@ export default function HomePage() {
                 ? "bg-red-50 border-red-200"
                 : isUrgent
                   ? "bg-amber-50 border-amber-200"
-                  : "bg-primary-50 border-primary-100"
+                  : "bg-gray-50 border-gray-100"
             }`}
           >
             <p
-              className={`text-xs font-medium mb-1 ${
+              className={`text-sm font-medium mb-1 ${
                 isOverdue
                   ? "text-red-600"
                   : isUrgent
                     ? "text-amber-600"
-                    : "text-primary-600"
+                    : "text-gray-600"
               }`}
             >
               {isOverdue ? "Fine overdue!" : "Rent active"}
             </p>
-            <p className="text-sm font-semibold text-gray-900">
+            <p className="text-md font-semibold text-gray-900">
               {nearestRental.manga?.title} Vol.{" "}
               {nearestRental.volume?.volumeNumber}
             </p>
             <div className="mt-2.5 inline-flex">
               <span
-                className={`text-xs font-medium px-3 py-1 rounded-full ${
+                className={`text-sm font-medium px-3 py-1 rounded-full ${
                   isOverdue
                     ? "bg-red-100 text-red-700"
                     : isUrgent
                       ? "bg-amber-100 text-amber-700"
-                      : "bg-primary-100 text-primary-700"
+                      : "bg-gray-100 text-gray-800"
                 }`}
               >
                 {isOverdue
@@ -96,7 +96,7 @@ export default function HomePage() {
           </h2>
           <Link
             href="/catalogue"
-            className="text-sm text-primary-600 hover:underline"
+            className="text-md text-gray-600 hover:underline"
           >
             Show All →
           </Link>

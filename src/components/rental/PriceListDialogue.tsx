@@ -55,14 +55,14 @@ export default function PriceListDialogue({
 
         {/* Header */}
         <div className="mb-5">
-          <p className="text-xs text-gray-500">Pilih durasi sewa</p>
+          <p className="text-md text-gray-500">Pilih durasi sewa</p>
           <p className="text-base font-semibold text-gray-900">
             {manga.title} Vol. {volume.volumeNumber}
           </p>
         </div>
 
         {/* Price options */}
-        <p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-3">
+        <p className="text-md font-medium text-gray-400 uppercase tracking-wider mb-3">
           Paket durasi
         </p>
         <div className="space-y-2 mb-5">
@@ -72,20 +72,20 @@ export default function PriceListDialogue({
               onClick={() => setSelectedId(p.id)}
               className={`w-full flex justify-between items-center p-3.5 rounded-xl border text-left transition ${
                 selectedId === p.id
-                  ? "border-primary-400 bg-primary-50"
+                  ? "border-gray-400 bg-gray-50"
                   : "border-gray-200 hover:border-gray-300 bg-white"
               }`}
             >
               <div>
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-md font-medium text-gray-900">
                   {p.durationDays} days
                 </p>
-                <p className="text-xs text-gray-500 mt-0.5">
+                <p className="text-md text-gray-500 mt-0.5">
                   Fine Rp {p.finePerDay.toLocaleString("id")}/days
                 </p>
               </div>
               <p
-                className={`text-sm font-semibold ${selectedId === p.id ? "text-primary-700" : "text-gray-900"}`}
+                className={`text-md font-semibold ${selectedId === p.id ? "text-gray-800" : "text-gray-900"}`}
               >
                 Rp {p.price.toLocaleString("id")}
               </p>
@@ -96,13 +96,13 @@ export default function PriceListDialogue({
         {/* Summary */}
         {selected && (
           <div className="bg-gray-50 rounded-xl p-4 mb-5 border border-gray-100 space-y-2">
-            <div className="flex justify-between text-xs">
+            <div className="flex justify-between text-md">
               <span className="text-gray-500">Duration</span>
               <span className="text-gray-700">
                 {selected.durationDays} days
               </span>
             </div>
-            <div className="flex justify-between text-xs">
+            <div className="flex justify-between text-md">
               <span className="text-gray-500">Due</span>
               <span className="text-gray-700">
                 {format(
@@ -113,7 +113,7 @@ export default function PriceListDialogue({
               </span>
             </div>
             <div className="h-px bg-gray-200" />
-            <div className="flex justify-between text-sm font-semibold">
+            <div className="flex justify-between text-md font-semibold">
               <span className="text-gray-900">Total</span>
               <span className="text-gray-900">
                 Rp {selected.price.toLocaleString("id")}
@@ -123,7 +123,7 @@ export default function PriceListDialogue({
         )}
 
         {mutation.isError && (
-          <p className="text-red-500 text-xs mb-3">
+          <p className="text-red-500 text-md mb-3">
             Terjadi kesalahan. Coba lagi.
           </p>
         )}
@@ -132,7 +132,7 @@ export default function PriceListDialogue({
         <div className="flex gap-3">
           <button
             onClick={onClose}
-            className="flex-1 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50 transition"
+            className="flex-1 py-2.5 rounded-xl border border-gray-200 text-md text-gray-600 hover:bg-gray-50 transition"
           >
             Batal
           </button>
@@ -142,7 +142,7 @@ export default function PriceListDialogue({
               if (!selectedId) return;
               mutation.mutate({ volumeId: volume.id, priceListId: selectedId });
             }}
-            className="flex-1 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-800 disabled:bg-gray-100 disabled:text-gray-400 text-primary-50 text-sm font-medium transition"
+            className="flex-1 py-2.5 rounded-xl bg-gray-600 hover:bg-gray-800 disabled:bg-gray-100 disabled:text-gray-400 text-gray-50 text-md font-medium transition"
           >
             {mutation.isPending ? "Memproses..." : "Konfirmasi sewa"}
           </button>

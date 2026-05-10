@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMangaDetail } from "@/lib/api/manga";
 import StatusBadge from "@/components/manga/StatusBadge";
 import PriceListDialogue from "@/components/rental/PriceListDialogue";
+import Image from "next/image";
 
 export default function MangaDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -26,7 +27,7 @@ export default function MangaDetailPage() {
     );
 
   if (!manga)
-    return <p className="text-gray-400 text-sm">Manga tidak ditemukan</p>;
+    return <p className="text-gray-400 text-md">Manga tidak ditemukan</p>;
 
   const selectedVolume = manga.volumes.find((v) => v.id === selectedVolumeId);
   const availableVolumes = manga.volumes.filter(
@@ -38,7 +39,7 @@ export default function MangaDetailPage() {
       {/* Back */}
       <button
         onClick={() => router.back()}
-        className="text-sm text-primary-600 hover:underline"
+        className="text-md text-gray-600 hover:underline"
       >
         ← Back to Catalogue
       </button>
@@ -47,10 +48,20 @@ export default function MangaDetailPage() {
       <div className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row gap-6">
           {/* Cover placeholder */}
-          <div className="w-32 h-44 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0 self-start">
-            <span className="text-2xl font-bold text-primary-600">
-              {manga.title.slice(0, 2).toUpperCase()}
-            </span>
+          <div className="w-32 h-44 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 self-start overflow-hidden">
+            {manga.coverUrl ? (
+              <Image
+                src={manga.coverUrl}
+                alt={`Cover ${manga.title}`}
+                width={128}
+                height={176}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="text-2xl font-bold text-gray-500">
+                {manga.title.slice(0, 2).toUpperCase()}
+              </span>
+            )}
           </div>
 
           {/* Info */}
@@ -59,20 +70,20 @@ export default function MangaDetailPage() {
               <h1 className="text-2xl font-semibold text-gray-900">
                 {manga.title}
               </h1>
-              <p className="text-sm text-gray-500 mt-1">{manga.author}</p>
+              <p className="text-md text-gray-500 mt-1">{manga.author}</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <span className="text-xs px-3 py-1 bg-primary-50 text-primary-700 rounded-full font-medium">
+              <span className="text-sm px-3 py-1 bg-gray-50 text-gray-800 rounded-full font-medium">
                 {manga.genre}
               </span>
-              <span className="text-xs px-3 py-1 bg-gray-100 text-gray-600 rounded-full">
+              <span className="text-sm px-3 py-1 bg-gray-100 text-gray-600 rounded-full">
                 {manga.totalVolumes} volume
               </span>
-              <span className="text-xs px-3 py-1 bg-accent-50 text-accent-600 rounded-full font-medium">
+              <span className="text-sm px-3 py-1 bg-accent-50 text-accent-600 rounded-full font-medium">
                 {availableVolumes.length} tersedia
               </span>
             </div>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-md text-gray-600 leading-relaxed">
               {manga.description}
             </p>
           </div>
@@ -81,7 +92,7 @@ export default function MangaDetailPage() {
 
       {/* Volume picker */}
       <div className="bg-white rounded-2xl border border-gray-100 p-6">
-        <h2 className="text-sm font-semibold text-gray-900 mb-4">
+        <h2 className="text-md font-semibold text-gray-900 mb-4">
           Pilih volume
         </h2>
         <div className="flex flex-wrap gap-2 mb-6">
@@ -93,11 +104,11 @@ export default function MangaDetailPage() {
                 key={vol.id}
                 disabled={!isAvail}
                 onClick={() => setSelectedVolumeId(isSel ? null : vol.id)}
-                className={`px-3 py-2 rounded-xl border text-xs font-medium transition ${
+                className={`px-3 py-2 rounded-xl border text-sm font-medium transition ${
                   isSel
-                    ? "bg-primary-100 border-primary-400 text-primary-800"
+                    ? "bg-gray-100 border-gray-400 text-gray-800"
                     : isAvail
-                      ? "bg-white border-gray-200 text-gray-700 hover:border-primary-300 hover:bg-primary-50"
+                      ? "bg-white border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50"
                       : "bg-gray-50 border-gray-100 text-gray-300 cursor-not-allowed"
                 }`}
               >
@@ -112,12 +123,12 @@ export default function MangaDetailPage() {
           <button
             disabled={!selectedVolumeId}
             onClick={() => setShowDialog(true)}
-            className="px-6 py-2.5 bg-primary-600 hover:bg-primary-800 disabled:bg-gray-100 disabled:text-gray-400 text-primary-50 text-sm font-medium rounded-xl transition"
+            className="px-6 py-2.5 bg-gray-600 hover:bg-gray-800 disabled:bg-gray-100 disabled:text-gray-400 text-gray-50 text-md font-medium rounded-xl transition"
           >
             {selectedVolumeId ? "Pilih durasi sewa" : "Pilih volume dulu"}
           </button>
           {selectedVolumeId && (
-            <span className="text-xs text-gray-500">
+            <span className="text-sm text-gray-500">
               Volume{" "}
               {
                 manga.volumes.find((v) => v.id === selectedVolumeId)

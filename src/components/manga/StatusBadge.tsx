@@ -20,7 +20,7 @@ export default function StatusBadge({
   const { label, cls } = config[status];
   return (
     <span
-      className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full ${cls} ${className}`}
+      className={`inline-block text-sm font-medium px-2 py-0.5 rounded-full ${cls} ${className}`}
     >
       {compact && status === "available" ? "✓" : label}
     </span>

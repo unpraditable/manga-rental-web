@@ -89,11 +89,11 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-sm animate-fade-up">
         <div className="text-center mb-8">
-          <div className="w-14 h-14 bg-primary-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-            <div className="w-7 h-7 bg-primary-100 rounded-lg" />
+          <div className="w-14 h-14 bg-gray-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+            <div className="w-7 h-7 bg-gray-100 rounded-lg" />
           </div>
           <h1 className="text-xl font-semibold text-gray-900">Buat akun</h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-md text-gray-500 mt-1">
             Daftar untuk mulai menyewa manga
           </p>
         </div>
@@ -105,17 +105,17 @@ export default function RegisterPage() {
           >
             {fields.map(({ name, label, type, placeholder }) => (
               <div key={name}>
-                <label className="block text-sm text-gray-600 mb-1.5">
+                <label className="block text-md text-gray-600 mb-1.5">
                   {label}
                 </label>
                 <input
                   {...register(name)}
                   type={type}
                   placeholder={placeholder}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition"
                 />
                 {errors[name] && (
-                  <p className="text-red-500 text-xs mt-1">
+                  <p className="text-red-500 text-sm mt-1">
                     {errors[name]?.message}
                   </p>
                 )}
@@ -125,17 +125,17 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={mutation.isPending}
-              className="w-full bg-primary-600 hover:bg-primary-800 text-primary-50 text-sm font-medium py-2.5 rounded-xl transition disabled:opacity-60"
+              className="w-full bg-gray-600 hover:bg-gray-800 text-gray-50 text-md font-medium py-2.5 rounded-xl transition disabled:opacity-60"
             >
               {mutation.isPending ? "Memproses..." : "Daftar sekarang"}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-500 mt-4">
+          <p className="text-center text-md text-gray-500 mt-4">
             Sudah punya akun?{" "}
             <Link
               href="/login"
-              className="text-primary-600 font-medium hover:underline"
+              className="text-gray-600 font-medium hover:underline"
             >
               Masuk
             </Link>

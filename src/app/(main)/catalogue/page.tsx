@@ -51,7 +51,7 @@ export default function CataloguePage() {
     <div className="space-y-6 animate-fade-up">
       <div>
         <h1 className="text-2xl font-semibold text-gray-900">Catalogue</h1>
-        <p className="text-sm text-gray-500 mt-1">Find your favorite manga</p>
+        <p className="text-md text-gray-500 mt-1">Find your favorite manga</p>
       </div>
 
       {/* Search + filter */}
@@ -62,7 +62,7 @@ export default function CataloguePage() {
             value={search}
             onChange={(e) => handleSearch(e.target.value)}
             placeholder="Search by title or author..."
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 transition"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-md focus:outline-none focus:ring-2 focus:ring-gray-400 transition"
           />
         </div>
 
@@ -71,9 +71,9 @@ export default function CataloguePage() {
             <button
               key={g}
               onClick={() => setGenre(g)}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium border transition ${
+              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition ${
                 genre === g
-                  ? "bg-primary-600 text-primary-50 border-primary-600"
+                  ? "bg-gray-600 text-gray-50 border-gray-600"
                   : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"
               }`}
             >
@@ -95,7 +95,7 @@ export default function CataloguePage() {
         </div>
       ) : (
         <>
-          <p className="text-sm text-gray-400">
+          <p className="text-md text-gray-400">
             {data?.total ?? 0} title found
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -108,7 +108,7 @@ export default function CataloguePage() {
             ))}
           </div>
           {data?.data.length === 0 && (
-            <div className="text-center py-16 text-gray-400 text-sm">
+            <div className="text-center py-16 text-gray-400 text-md">
               No manga found
             </div>
           )}

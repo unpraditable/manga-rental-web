@@ -14,7 +14,7 @@ export default function RentHistoryPage() {
   return (
     <div className="space-y-6 animate-fade-up">
       <div>
-        <Link href="/rent" className="text-sm text-primary-600 hover:underline">
+        <Link href="/rent" className="text-md text-gray-600 hover:underline">
           ← Kembali
         </Link>
         <h1 className="text-2xl font-semibold text-gray-900 mt-3">
@@ -32,24 +32,24 @@ export default function RentHistoryPage() {
           ))}
         </div>
       ) : rentals?.length === 0 ? (
-        <p className="text-gray-400 text-sm text-center py-12">
+        <p className="text-gray-400 text-md text-center py-12">
           No active rents
         </p>
       ) : (
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <table className="w-full text-sm">
+          <table className="w-full text-md">
             <thead>
               <tr className="border-b border-gray-100 bg-gray-50">
-                <th className="text-left px-4 py-3 text-xs font-medium text-gray-500">
+                <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">
                   Manga
                 </th>
-                <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 hidden sm:table-cell">
+                <th className="text-left px-4 py-3 text-sm font-medium text-gray-500 hidden sm:table-cell">
                   Rented
                 </th>
-                <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 hidden sm:table-cell">
+                <th className="text-left px-4 py-3 text-sm font-medium text-gray-500 hidden sm:table-cell">
                   Returned
                 </th>
-                <th className="text-right px-4 py-3 text-xs font-medium text-gray-500">
+                <th className="text-right px-4 py-3 text-sm font-medium text-gray-500">
                   Fine
                 </th>
               </tr>
@@ -64,7 +64,7 @@ export default function RentHistoryPage() {
                     <p className="font-medium text-gray-900">
                       {r.manga?.title}
                     </p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-sm text-gray-500">
                       Vol. {r.volume?.volumeNumber}
                     </p>
                   </td>
@@ -86,7 +86,7 @@ export default function RentHistoryPage() {
                         Rp {r.fineAmount.toLocaleString("id")}
                       </span>
                     ) : (
-                      <span className="text-green-600 text-xs">Nothing</span>
+                      <span className="text-green-600 text-sm">Nothing</span>
                     )}
                   </td>
                 </tr>

@@ -38,11 +38,11 @@ export default function LoginPage() {
       <div className="w-full max-w-sm animate-fade-up">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-14 h-14 bg-primary-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-            <div className="w-7 h-7 bg-primary-100 rounded-lg" />
+          <div className="w-14 h-14 bg-gray-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+            <div className="w-7 h-7 bg-gray-100 rounded-lg" />
           </div>
           <h1 className="text-xl font-semibold text-gray-900">Manga Rental</h1>
-          <p className="text-sm text-gray-500 mt-1">Masuk ke akun kamu</p>
+          <p className="text-md text-gray-500 mt-1">Masuk ke akun kamu</p>
         </div>
 
         {/* Card */}
@@ -52,41 +52,41 @@ export default function LoginPage() {
             className="space-y-4"
           >
             <div>
-              <label className="block text-sm text-gray-600 mb-1.5">
+              <label className="block text-md text-gray-600 mb-1.5">
                 Email
               </label>
               <input
                 {...register("email")}
                 type="email"
                 placeholder="email@kamu.com"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition"
               />
               {errors.email && (
-                <p className="text-red-500 text-xs mt-1">
+                <p className="text-red-500 text-sm mt-1">
                   {errors.email.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm text-gray-600 mb-1.5">
+              <label className="block text-md text-gray-600 mb-1.5">
                 Password
               </label>
               <input
                 {...register("password")}
                 type="password"
                 placeholder="••••••••"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition"
               />
               {errors.password && (
-                <p className="text-red-500 text-xs mt-1">
+                <p className="text-red-500 text-sm mt-1">
                   {errors.password.message}
                 </p>
               )}
             </div>
 
             {mutation.isError && (
-              <div className="bg-red-50 text-red-600 text-xs px-3 py-2 rounded-lg border border-red-100">
+              <div className="bg-red-50 text-red-600 text-sm px-3 py-2 rounded-lg border border-red-100">
                 Email atau password salah
               </div>
             )}
@@ -94,17 +94,17 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={mutation.isPending}
-              className="w-full bg-primary-600 hover:bg-primary-800 text-primary-50 text-sm font-medium py-2.5 rounded-xl transition disabled:opacity-60"
+              className="w-full bg-gray-600 hover:bg-gray-800 text-gray-50 text-md font-medium py-2.5 rounded-xl transition disabled:opacity-60"
             >
               {mutation.isPending ? "Memproses..." : "Masuk"}
             </button>
           </form>
 
-          <p className="text-center text-sm text-gray-500 mt-4">
+          <p className="text-center text-md text-gray-500 mt-4">
             Belum punya akun?{" "}
             <Link
               href="/register"
-              className="text-primary-600 font-medium hover:underline"
+              className="text-gray-600 font-medium hover:underline"
             >
               Daftar
             </Link>

@@ -25,10 +25,10 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link href="/home" className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-primary-600 rounded-lg flex items-center justify-center">
-            <div className="w-3.5 h-3.5 bg-primary-100 rounded" />
+          <div className="w-7 h-7 bg-gray-600 rounded-lg flex items-center justify-center">
+            <div className="w-3.5 h-3.5 bg-gray-100 rounded" />
           </div>
-          <span className="font-semibold text-sm text-gray-900">
+          <span className="font-semibold text-md text-gray-900">
             Manga Rental
           </span>
         </Link>
@@ -41,9 +41,9 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                className={`px-3 py-1.5 rounded-lg text-sm transition ${
+                className={`px-3 py-1.5 rounded-lg text-md transition ${
                   active
-                    ? "bg-primary-50 text-primary-700 font-medium"
+                    ? "bg-gray-50 text-gray-800 font-medium"
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >
@@ -55,20 +55,20 @@ export default function Navbar() {
 
         {/* User */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
-            <span className="text-xs font-medium text-primary-700">
+          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+            <span className="text-md font-medium text-gray-800">
               {user?.name?.[0]}
             </span>
           </div>
-          <span className="hidden sm:block text-sm text-gray-700">
+          <span className="hidden sm:block text-md text-gray-700">
             {user?.name?.split(" ")[0]}
           </span>
-          <button
+          {/* <button
             onClick={handleLogout}
-            className="text-xs text-gray-400 hover:text-gray-700 transition"
+            className="text-md text-gray-400 hover:text-gray-700 transition"
           >
             Logout
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -80,9 +80,9 @@ export default function Navbar() {
             <Link
               key={href}
               href={href}
-              className={`flex-1 text-center py-2 text-xs transition ${
+              className={`flex-1 text-center py-2 text-md transition ${
                 active
-                  ? "text-primary-700 font-medium border-b-2 border-primary-600"
+                  ? "text-gray-800 font-medium border-b-2 border-gray-600"
                   : "text-gray-500"
               }`}
             >

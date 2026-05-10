@@ -43,7 +43,7 @@ export default function NotificationPage() {
           ))}
         </div>
       ) : notifs?.length === 0 ? (
-        <p className="text-gray-400 text-sm text-center py-12">
+        <p className="text-gray-400 text-md text-center py-12">
           Belum ada notifikasi
         </p>
       ) : (
@@ -63,9 +63,9 @@ export default function NotificationPage() {
                   className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${s.dot}`}
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900">{n.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">{n.body}</p>
-                  <p className="text-xs text-gray-400 mt-1">
+                  <p className="text-md font-medium text-gray-900">{n.title}</p>
+                  <p className="text-sm text-gray-500 mt-0.5">{n.body}</p>
+                  <p className="text-sm text-gray-400 mt-1">
                     {formatDistanceToNow(parseISO(n.createdAt), {
                       addSuffix: true,
                       locale: localeId,
@@ -73,7 +73,7 @@ export default function NotificationPage() {
                   </p>
                 </div>
                 {!n.read && (
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary-600 mt-2 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-gray-600 mt-2 flex-shrink-0" />
                 )}
               </div>
             );
